@@ -1,0 +1,83 @@
+// 1-27-25
+#include <iostream> // libary for input and output
+#include <string> // libary that uses manipulate strings
+#include <cstdlib> // libary for purpose functions including random numbers
+#include <ctime> // libary for handling time and functions
+#include <algorithm> // Libary for a variety of functions
+using namespace std;
+// global constansts and variables
+const int MAX_INCORRECT = 6; // maximum wrong guesses allowed
+char incorrect[MAX_INCORRECT]; // array to hold incorrect guesses
+int numIncorrect = 0; // counter for the number
+int misses = 0; // counter for the number of misses
+// Function to display the hangman drawning based on how many times the player guess wrong
+void displayHangman() {
+	cout << "\n"; 
+	switch (misses) { // check the number of misses and show the apprp[riate hangman stage
+	case 0:
+		cout << "  +---+\n";
+		cout << "  |   |\n";
+		cout << "      |\n";
+		cout << "      |\n";
+		cout << "      |\n";
+		cout << "      |\n";
+		cout << "=========\n";
+		break;
+	case 1:
+		cout << "  +---+\n";
+		cout << "  |   |\n";
+		cout << "  O   |\n";
+		cout << "      |\n";
+		cout << "      |\n";
+		cout << "      |\n";
+		cout << "=========\n";
+		break;
+		// Additional cases for more misses would continue here
+		}
+}
+
+// Function to display the current state of the game
+void display(string guessWord) {
+	cout << "\n Word: ";
+	for (int i = 0; i < guessWord.length(); i++) {
+		cout << guessWord[i] << ' '; // show each character in the guessed word followed by a space
+	}
+	cout << "\n Incorrect guesses: ";
+	for (int i = 0; i < guessWord.length(); i++) {
+		cout << IncorrectWord [i] << ' ';
+	}
+	cout << "\n Misses left: " << MAX_INCORRECT - misses << "\n";
+	displayHangman(); // call function to show the hangman drawning
+}
+
+string processGuess(char guess, string word, string guessWord) {
+	bool isCorrect = false;
+	for (int i = 0; i < word.length(); i++) {
+		if (word[i] == guess && guessWord[i] == '_') {
+			guessWord[i] = guess;
+			IsCorrect = true;
+
+		}
+	}
+	if (!isCorrect) {
+		bool alreadyGuessed = false;
+
+		for (int i = 0; i < numIncorrect i++) {
+
+			if (incorrect[i] == guess) {
+				alreadyGuessed = true;
+				break; 
+			}
+		}
+
+
+
+
+
+
+
+	}
+
+
+
+}
